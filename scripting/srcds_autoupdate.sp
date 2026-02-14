@@ -57,7 +57,9 @@ public void OnPluginStart() {
 
     restartRequestedHook = DHookCreateFromConf(config, "ISteamGameServer::WasRestartRequested");
     if (!restartRequestedHook) {
+        delete config;
         SetFailState("Failed to create virtual hook for ISteamGameServer::WasRestartRequested");
+        return;
     }
 
     StartPrepSDKCall(SDKCall_Static);
@@ -67,7 +69,9 @@ public void OnPluginStart() {
     if (!steamServerSdkCall) {
         steamServer = GameConfGetAddress(config, "s_Steam3Server");
         if (!steamServer) {
+            delete config;
             SetFailState("Failed to get Steam3Server instance");
+            return;
         }
     } else {
         steamServer = SDKCall(steamServerSdkCall);
