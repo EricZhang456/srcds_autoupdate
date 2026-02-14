@@ -1,0 +1,51 @@
+"Games"
+{
+    "#default"
+    {
+        "Signatures"
+        {
+            "Steam3Server"
+            {
+                "library" "engine"
+                "linux" "@_Z12Steam3Serverv"
+            }
+            "CBaseServer::CheckMasterServerRequestRestart"
+            {
+                "library" "engine"
+                "linux" "@_ZN11CBaseServer31CheckMasterServerRequestRestartEv"
+            }
+            "sv_setsteamaccount_f"
+            {
+                "library" "engine"
+                "windows" "\x55\x8B\xEC\x8B\x0D\x2A\x2A\x2A\x2A\x85\xC9\x74\x2A\x8B\x01\x8B\x40\x20"
+            }
+            "s_Steam3Server"
+            {
+                "windows"
+                {
+                    "signature" "sv_setsteamaccount_f"
+                    "read" "5"
+                    "offset" "-4"
+                }
+            }
+        }
+        "Functions"
+        {
+            "ISteamGameServer::WasRestartRequested"
+            {
+                "offset" "ISteamGameServer::WasRestartRequested"
+                "hooktype" "raw"
+                "this" "address"
+                "return" "bool"
+            }
+        }
+        "Offsets"
+        {
+            "ISteamGameServer::WasRestartRequested"
+            {
+                "linux" "11"
+                "windows" "11"
+            }
+        }
+    }
+}

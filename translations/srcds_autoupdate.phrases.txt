@@ -1,0 +1,8 @@
+"Phrases"
+{
+    "SRCDS_AUTOUPDATE_MESSAGE"
+    {
+        "#format"   "{1:d}"
+        "en"        "A new update has been released for this game. This server will restart in {1} seconds."
+    }
+}
