@@ -22,12 +22,10 @@ public Plugin myinfo = {
 };
 
 public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max) {
-#if !defined DEBUG
     if (!IsDedicatedServer()) {
         strcopy(error, err_max, "This plugin must be run under a dedicated server.")
         return APLRes_SilentFailure;
     }
-#endif
     return APLRes_Success;
 }
 
